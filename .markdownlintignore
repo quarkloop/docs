@@ -1,0 +1,7 @@
+node_modules/
+.next/
+.vercel/
+.source/
+content/
+public/pagefind/
+package-lock.json
