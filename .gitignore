@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Vercel
+.vercel/
+
+# Content is synced from product repos — do not commit
+content/
+
+# Pagefind index (generated at build time)
+public/pagefind/
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
