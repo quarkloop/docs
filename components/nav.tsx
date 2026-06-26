@@ -6,7 +6,7 @@ import { Logo } from "@/components/logo";
  * Top navigation bar — sticky, frosted glass background.
  * Shown on the home page and other non-docs pages.
  *
- * Links to the four product documentation sections.
+ * Links to the three product documentation sections.
  */
 export function Nav() {
   return (
@@ -25,12 +25,6 @@ export function Nav() {
             className="px-3 py-1.5 text-sm text-sand-500 hover:text-sand-900 dark:hover:text-sand-50 transition-colors"
           >
             SDK
-          </Link>
-          <Link
-            href="/docs/runtime"
-            className="px-3 py-1.5 text-sm text-sand-500 hover:text-sand-900 dark:hover:text-sand-50 transition-colors"
-          >
-            Runtime
           </Link>
           <Link
             href="/docs/agent"

@@ -1,6 +1,6 @@
 # Quark Docs
 
-Unified documentation portal for the Quark platform — a [Fuma Docs](https://fumadocs.vercel.app/) (Next.js) site that aggregates markdown from four product repositories into one searchable, navigable docs site.
+Unified documentation portal for the Quark platform — a [Fuma Docs](https://fumadocs.vercel.app/) (Next.js) site that aggregates markdown from three product repositories into one searchable, navigable docs site.
 
 ## Overview
 
@@ -8,17 +8,16 @@ This repo contains only the Next.js docs application. The actual documentation m
 
 | Section | Source repo | Content location |
 |---|---|---|
-| Platform | [quarkloop/quark](https://github.com/quarkloop/quark) | `docs/content/docs/*.mdx` |
-| SDK | [quarkloop/quark-js](https://github.com/quarkloop/quark-js) | `docs/*.md` |
-| Runtime | [quarkloop/poc-rust-runtime](https://github.com/quarkloop/poc-rust-runtime) | `docs/*.md` |
-| Agent | [quarkloop/agent](https://github.com/quarkloop/agent) | `docs/*.md` + root-level `*.md` |
+| Platform | [quarkloop/quark](https://github.com/quarkloop/quark) | `docs/*.mdx` |
+| SDK | [quarkloop/quark-js](https://github.com/quarkloop/quark-js) | `docs/*.mdx` |
+| Agent | [quarkloop/agent](https://github.com/quarkloop/agent) | `docs/*.mdx` |
 
 ## Features
 
 - **Fuma Docs** — Next.js-based documentation framework with MDX support
-- **Multi-product portal** — four product sections under one navigation
+- **Multi-product portal** — three product sections under one navigation
 - **Pagefind search** — static search index generated at build time, no server required
-- **Content sync** — `sync-content.sh` clones each product repo with `--depth 1` and copies markdown into `content/docs/<section>/`
+- **Content sync** — `sync-content.sh` clones each product repo with `--depth 1` and copies ALL markdown files from `docs/` into `content/docs/<section>/` — no hardcoded filenames
 - **Manual Vercel deployment** — `vercel.ts` configures the Vercel project; deploy with `vercel --prod` from the CLI
 - **Warm design system** — sand/ember color palette, no gradients, premium typography
 
@@ -66,7 +65,6 @@ The `vercel.ts` config automatically:
 
 ## Documentation
 
-- [Architecture](#how-it-works) — how the content sync and build pipeline works
 - [Vercel TS reference](https://vercel.com/docs/project-configuration/vercel-ts) — official docs for the `vercel.ts` format
 - [Fuma Docs](https://fumadocs.vercel.app/) — the documentation framework
 - [Pagefind](https://pagefind.app/) — the static search engine
@@ -74,19 +72,18 @@ The `vercel.ts` config automatically:
 ## How it works
 
 ```
-Product repos (4)                    Docs repo (this one)
+Product repos (3)                    Docs repo (this one)
 ┌─────────────────┐                 ┌──────────────────────────┐
 │ quarkloop/quark │──┐              │                          │
 │ quarkloop/      │  │  git clone   │  scripts/sync-content.sh │
 │   quark-js      │──┼─────────────►│  clones each repo with   │
-│ quarkloop/      │  │  --depth 1   │  --depth 1, copies .md   │
-│   poc-rust-...  │  │              │  files into content/     │
-│ quarkloop/agent │──┘              │                          │
-└─────────────────┘                 │  content/docs/           │
+│ quarkloop/agent │──┘  --depth 1   │  --depth 1, copies ALL   │
+└─────────────────┘                 │  .md/.mdx from docs/     │
+                                    │                          │
+                                    │  content/docs/           │
                                     │  ├── platform/*.mdx      │
-                                    │  ├── sdk/*.md            │
-                                    │  ├── runtime/*.md        │
-                                    │  └── agent/*.md          │
+                                    │  ├── sdk/*.mdx           │
+                                    │  └── agent/*.mdx         │
                                     │                          │
                                     │  next build              │
                                     │  pagefind (postbuild)    │

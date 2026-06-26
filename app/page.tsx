@@ -3,16 +3,14 @@ import {
   ArrowRight,
   Boxes,
   Cpu,
-  Database,
   Terminal,
-  Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
 /**
- * The four product sections of the unified docs portal.
+ * The three product sections of the unified docs portal.
  * Each links to the corresponding /docs/<section> route.
  */
 const products: Array<{
@@ -40,14 +38,6 @@ const products: Array<{
   },
   {
     icon: Cpu,
-    name: "Runtime",
-    tagline: "Rust · NATS bridge",
-    description:
-      "The Rust runtime that loads and executes node implementations as shared libraries (.so) or WebAssembly (.wasm) over NATS.",
-    href: "/docs/runtime",
-  },
-  {
-    icon: Database,
     name: "Agent",
     tagline: "Go + Rust · Autonomous workspaces",
     description:
@@ -80,8 +70,7 @@ export default function HomePage() {
 
           <p className="mt-6 text-lg sm:text-xl text-sand-400 leading-relaxed text-pretty animate-slide-up [animation-delay:60ms]">
             One portal for everything Quark — the platform architecture,
-            the JavaScript SDK, the Rust runtime, and the autonomous agent
-            environment.
+            the JavaScript SDK, and the autonomous agent environment.
           </p>
         </div>
       </section>
@@ -97,7 +86,7 @@ export default function HomePage() {
             truth lives with the code.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {products.map((p, i) => (
             <Link
               key={p.name}

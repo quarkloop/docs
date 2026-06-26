@@ -27,3 +27,6 @@ public/pagefind/
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Fuma Docs generated source
+.source/

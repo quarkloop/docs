@@ -2,15 +2,13 @@ import Link from "next/link";
 import {
   Boxes,
   Cpu,
-  Database,
   Terminal,
-  ArrowRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { DocCard } from "@/components/doc-card";
 
 /**
- * The /docs index page — shows the four product sections as cards.
+ * The /docs index page — shows the three product sections as cards.
  * Each card links to the corresponding /docs/<section> route.
  */
 const sections: Array<{
@@ -35,13 +33,6 @@ const sections: Array<{
   },
   {
     icon: Cpu,
-    href: "/docs/runtime",
-    title: "Quark Runtime",
-    description:
-      "The Rust runtime — loads and executes node implementations as .so or .wasm, bridged to clients over NATS.",
-  },
-  {
-    icon: Database,
     href: "/docs/agent",
     title: "Quark Agent",
     description:
@@ -61,12 +52,12 @@ export default function DocsIndexPage() {
           Browse the docs
         </h1>
         <p className="mt-2 text-sand-400 max-w-2xl">
-          Four products, one portal. Each section is synced from its own
+          Three products, one portal. Each section is synced from its own
           repository — pick a product to dive in.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {sections.map((s) => (
           <DocCard
             key={s.href}
