@@ -61,7 +61,7 @@ The `vercel.ts` config automatically:
 2. Builds the Next.js app
 3. Generates the Pagefind search index
 
-**Note:** The sync script uses SSH URLs to clone product repos. Ensure your SSH key is available when deploying, or switch the URLs in `scripts/sync-content.sh` to HTTPS if all repos are public.
+**Note:** The sync script uses HTTPS URLs to clone product repos — all three repos are public, so no authentication is needed on Vercel or in CI.
 
 ## Documentation
 

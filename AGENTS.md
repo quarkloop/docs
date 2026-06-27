@@ -199,7 +199,7 @@ The `vercel.ts` file configures:
 - **trailingSlash**: `false` (prevents duplicate-content SEO issues)
 - **headers**: security headers (X-Content-Type-Options, X-Frame-Options, etc.) + cache headers (1-year for static assets, 1-hour for pagefind index)
 
-The sync script uses SSH URLs to clone product repos. Ensure your SSH key is available when deploying. If repos are public, you can switch to HTTPS URLs in `scripts/sync-content.sh`.
+The sync script uses HTTPS URLs to clone product repos — all three repos are public, so no authentication is needed on Vercel or in CI.
 
 ## Sync script internals
 

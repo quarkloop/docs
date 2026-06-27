@@ -30,9 +30,9 @@ TMP_DIR="${TMP_DIR:-/tmp/quark-docs-sync}"
 # Product repos: section name → git URL
 # Each repo's docs/ directory will be copied to content/docs/<section>/
 declare -A REPOS=(
-    ["platform"]="git@github.com:quarkloop/quark.git"
-    ["sdk"]="git@github.com:quarkloop/quark-js.git"
-    ["agent"]="git@github.com:quarkloop/agent.git"
+    ["platform"]="https://github.com/quarkloop/quark.git"
+    ["sdk"]="https://github.com/quarkloop/quark-js.git"
+    ["agent"]="https://github.com/quarkloop/agent.git"
 )
 
 echo "=== Quark Docs — Content Sync ==="

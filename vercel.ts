@@ -30,10 +30,7 @@
  *
  * ## Prerequisites
  *
- * The sync-content.sh script clones product repos via SSH. Ensure your
- * SSH key is available when deploying, or switch the URLs in
- * scripts/sync-content.sh to HTTPS if all repos are public.
- *
+ * The sync script clones product repos via HTTPS — all three repos are public, so no authentication is needed on Vercel or in CI.
  * @see https://vercel.com/docs/project-configuration/vercel-ts
  */
 
