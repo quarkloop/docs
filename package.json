@@ -23,7 +23,7 @@
     "zod": "^3"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
+    "@types/node": "^26.0.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vercel/config": "^0.5.5",
